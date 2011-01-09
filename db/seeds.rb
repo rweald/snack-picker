@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+Factory.build(:snack, :name => "oreos").save
+Factory.build(:snack, :name => "nutter butters").save
+Factory.build(:snack, :name => "ritz").save

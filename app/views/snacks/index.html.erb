@@ -1,7 +1,16 @@
 <table  id="snack_list">
   <tbody>
-    <tr>
+    <% if !@snacks.blank? %>
+      <% for item in @snacks %>
+        <tr>
+          <td>item.name</td>
+          <td>item.quantity</td>
+          <td>item.price</td>
+        </tr>
+      <% end %>
+    <% else %>
       
-    </tr>
+    <% end %>
+    
   </tbody>
 </table>
