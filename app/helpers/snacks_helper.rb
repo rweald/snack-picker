@@ -1,0 +1,2 @@
+module SnacksHelper
+end
