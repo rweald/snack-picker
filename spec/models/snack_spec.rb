@@ -3,8 +3,7 @@ require 'spec_helper'
 describe Snack do
   context "validation" do
     before(:each) do
-      @mySnack = Factory(:snack)
-      @mySnack.save
+      Factory(:snack).save
     end
     it { should validate_presence_of :name }
     it { should validate_uniqueness_of :name}
