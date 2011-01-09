@@ -14,7 +14,7 @@
         <tr>
           <td class="name"> <%= item.name %> </td>
           <td class="quantity"><%= item.quantity %> </td>
-          <td class="price"> <%= item.price %> </td>
+          <td class="price"> $ <%= item.price %> </td>
           <td class="votes"> <%= item.votes %> </td>
         </tr>
       <% end %>
@@ -24,3 +24,20 @@
     
   </tbody>
 </table>
+
+<div class="form_instructions"> 
+  <p>Don't see your snack on the list? </p>
+  <center><button id="show_form">Click Here to Add it</button> </center>
+</div>
+
+<%= render :partial => "snack_form" %>
+
+<script type="text/javascript">
+  $(function  () {
+    $("#show_form").click(function  () {
+      $(".form_container").toggle();
+    });
+    
+  });
+</script>
+

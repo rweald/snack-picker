@@ -81,3 +81,34 @@ table tbody tr:hover{
   background-color:yellow;
   cursor: pointer;
 }
+
+/*styling for the new snack form*/
+.form_instructions{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form_instructions button{
+  margin-top: 10px;
+  width: 275px;
+}
+
+.form_instructions p{
+  font-size: 16pt;
+}
+
+.form_container{
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid #999;
+  padding: 5px;
+  display:none;
+}
+
+.form_container .field{
+  width: 70%;
+  margin: auto;
+}

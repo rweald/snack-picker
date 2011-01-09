@@ -1,0 +1,23 @@
+<div class="form_container">
+  <% form_for :snack, @snack, :url => {:controller => "snacks", :action => "create"} do |f| -%>
+    <div  class="field">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %> 
+    </div>
+    <div class="field">
+      <%= f.label :category, "Category" %>
+    <%= f.text_field :category %>
+    </div>
+    <div class="field">
+      <%= f.label :price, "Price" %>
+    <%= f.text_field :price %>
+    </div>
+    <div class="field">
+    <%= f.label :quantity, "Quantity" %>
+    <%= f.text_field :quantity %>
+    </div>
+    <div class="submission">
+      <%= f.submit "Add New Snack" %>
+    </div>
+  <% end -%>
+</div>
