@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20110109001219) do
     t.string   "category"
     t.decimal  "price",      :precision => 2, :scale => 0
     t.integer  "quantity"
+    t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

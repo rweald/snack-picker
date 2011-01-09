@@ -1,0 +1,83 @@
+/*html5 Reset*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+.header{
+  width: 100%;
+  height:80px;
+  min-width: 800px;
+/*  background-color:#33C7E9;*/
+}
+
+h1{
+  padding-top: 30px;
+  font-size: 20pt;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.content{
+/*  border: 3px solid #191919;*/
+  min-width:800px;
+  width: 60%;
+  margin:auto;
+}
+
+h2{
+  font-weight: normal;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 6px;
+}
+
+/*styling for the table view*/
+table{
+  width: 80%;
+  margin: auto;
+  border-top: 1px solid #999;
+}
+
+table thead td{
+  font-weight: bold;
+}
+
+table td{
+ border-bottom: 1px solid #999;
+ padding-left: 3px;
+}
+
+table td:last-child{
+  border-right: 1px solid #999;
+}
+table td:first-child{
+  border-left: 1px solid #999;
+}
+
+.name{
+  width: 60%;
+}
+
+table tbody tr:hover{
+  background-color:yellow;
+  cursor: pointer;
+}

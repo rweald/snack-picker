@@ -1,11 +1,21 @@
-<table  id="snack_list">
+<h2> Click on a row to place a vote for that particular snack </h2>
+<table  id="snack_list" cellspacing="0" cellpadding="0" >
+  <thead>
+    <tr>
+      <td  class="name"> Name </td>
+      <td class="quantity"> Quantity </td>
+      <td class="price"> Price </td>
+      <td class="votes"> Number of Votes </td>
+    </tr>
+  </thead>
   <tbody>
     <% if !@snacks.blank? %>
       <% for item in @snacks %>
         <tr>
-          <td>item.name</td>
-          <td>item.quantity</td>
-          <td>item.price</td>
+          <td class="name"> <%= item.name %> </td>
+          <td class="quantity"><%= item.quantity %> </td>
+          <td class="price"> <%= item.price %> </td>
+          <td class="votes"> <%= item.votes %> </td>
         </tr>
       <% end %>
     <% else %>

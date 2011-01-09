@@ -5,6 +5,7 @@ class CreateSnacks < ActiveRecord::Migration
       t.string :category
       t.decimal :price, :precision => 2
       t.integer :quantity
+      t.integer :votes
       t.timestamps
     end
   end
