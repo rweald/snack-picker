@@ -1,6 +1,6 @@
 Given /^a list containing snacks$/ do
-  visit("/snacks")
-  page.should have_selector("table")
+  visit(url_for(:controller => "snacks", :action => "index"))
+  page.should have_selector("table tbody")
 end
 
 When /^I create a new snack using the snack form$/ do
