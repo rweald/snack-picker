@@ -19,11 +19,41 @@ describe SnacksController do
     end
   end
   
-  describe "GET 'new'" do
-    it "should be successful" do
-      get :new
-      response.should be_success
-      response.should render_template("new")
+  describe "POST 'create'" do
+    
+    context "valid parameters" do
+      before(:each) do
+        Snack.any_instance.expects(:save).returns(true)
+      end
+      
+      it "should set success flash[:notice]" do
+        post :create
+        flash[:notice].should == "Your Snack has been successfully added to the list."
+        
+      end
+      it "should redirect to 'index'" do
+        post :create
+        response.should redirect_to(:action => "index")        
+      end
+    end
+    
+    context "invalid parameters" do
+    
+      before(:each) do
+        Snack.any_instance.expects(:save).returns(false)
+      end
+    
+      it "should set negative flash[:notice]" do
+        post :create
+        flash[:notice].should == "Your snack could not be added. Please ensure it is not already on the list."
+      end
+      
+      it "should redirect to 'index'" do
+        post :create
+        response.should redirect_to(:action => "index")
+        
+      end
+      
     end
   end
 end
