@@ -20,39 +20,26 @@ describe SnacksController do
   end
   
   describe "POST 'create'" do
-    
     context "valid parameters" do
       before(:each) do
         Snack.any_instance.expects(:save).returns(true)
+        post :create
       end
+
+      it { should set_the_flash.to("Your Snack has been successfully added to the list.")}
+      it {should redirect_to(snacks_path)} 
       
-      it "should set success flash[:notice]" do
-        post :create
-        flash[:notice].should == "Your Snack has been successfully added to the list."
-        
-      end
-      it "should redirect to 'index'" do
-        post :create
-        response.should redirect_to(:action => "index")        
-      end
     end
     
     context "invalid parameters" do
-    
       before(:each) do
         Snack.any_instance.expects(:save).returns(false)
-      end
-    
-      it "should set negative flash[:notice]" do
         post :create
-        flash[:notice].should == "Your snack could not be added. Please ensure it is not already on the list."
       end
       
-      it "should redirect to 'index'" do
-        post :create
-        response.should redirect_to(:action => "index")
-        
-      end
+      it {should set_the_flash.to("Your snack could not be added. Please ensure it is not already on the list.")}
+      
+      it {should redirect_to(snacks_path)}
       
     end
   end
@@ -61,30 +48,25 @@ describe SnacksController do
     
     it "should redirect to 'index'" do
       put :update, :id => 1
-      response.should redirect_to(:action => "index")
+      response.should redirect_to snacks_path
     end
     
     context "valid snack id parameter" do
       before(:each) do
         Snack.expects(:update_vote_count).returns(true)
+        post :update, :id => 1
       end
-
-      it "should set a successful flash[:notice]" do
-        put :update, :id => 1
-        flash[:notice].should == "Your Vote has been counted" 
-      end  
+      
+      it {should set_the_flash.to("Your Vote has been counted")}
     end
     
     context "invalid snack id parameter" do
       before(:each) do
         Snack.expects(:update_vote_count).returns(false)
+        post :update, :id => 1
       end
       
-      it "should set a failed flash[:notice]" do
-        put :update, :id => 1
-        flash[:notice].should == "There was a problem counting your vote please try again"
-      end
-      
+      it {should set_the_flash.to("There was a problem counting your vote please try again")}
     end
   end
 end
