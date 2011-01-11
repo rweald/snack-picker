@@ -11,7 +11,7 @@
   <tbody>
     <% if !@snacks.blank? %>
       <% for item in @snacks %>
-        <tr>
+        <tr id="<%= item.id %>">
           <td class="name"> <%= item.name %> </td>
           <td class="quantity"><%= item.quantity %> </td>
           <td class="price"> $ <%= item.price %> </td>
@@ -38,6 +38,10 @@
       $(".form_container").toggle();
     });
     
+    $("#snack_list tr").click(function(){
+      window.location = $(this).attr("id")
+      // alert($(this).attr("id"));
+    })
   });
 </script>
 
