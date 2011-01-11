@@ -112,3 +112,12 @@ table tbody tr:hover{
   width: 70%;
   margin: auto;
 }
+
+.alert{
+  width: 80%;
+  height: 50px;
+  margin: 10px auto 10px auto;
+  background-color: #D43301;
+  text-align: center;
+  font-size: 18pt;
+}
