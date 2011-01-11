@@ -16,7 +16,15 @@ class SnacksController < ApplicationController
     else
       flash[:notice] = "Your snack could not be added. Please ensure it is not already on the list."
     end
-    
+    redirect_to :action => "index"
+  end
+  
+  def update
+    if Snack.update_vote_count params[:id]
+      flash[:notice] = "Your Vote has been counted"
+    else
+      flash[:notice] = "There was a problem counting your vote please try again"
+    end
     redirect_to :action => "index"
   end
 

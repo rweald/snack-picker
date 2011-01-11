@@ -56,4 +56,35 @@ describe SnacksController do
       
     end
   end
+  
+  describe "PUT 'update'" do
+    
+    it "should redirect to 'index'" do
+      put :update, :id => 1
+      response.should redirect_to(:action => "index")
+    end
+    
+    context "valid snack id parameter" do
+      before(:each) do
+        Snack.expects(:update_vote_count).returns(true)
+      end
+
+      it "should set a successful flash[:notice]" do
+        put :update, :id => 1
+        flash[:notice].should == "Your Vote has been counted" 
+      end  
+    end
+    
+    context "invalid snack id parameter" do
+      before(:each) do
+        Snack.expects(:update_vote_count).returns(false)
+      end
+      
+      it "should set a failed flash[:notice]" do
+        put :update, :id => 1
+        flash[:notice].should == "There was a problem counting your vote please try again"
+      end
+      
+    end
+  end
 end
