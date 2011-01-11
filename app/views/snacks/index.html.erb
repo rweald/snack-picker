@@ -11,7 +11,7 @@
   <tbody>
     <% if !@snacks.blank? %>
       <% for item in @snacks %>
-        <tr>
+        <tr id="<%= item.id %>">
           <td class="name"> <%= item.name %> </td>
           <td class="quantity"><%= item.quantity %> </td>
           <td class="price"> $ <%= item.price %> </td>
@@ -36,6 +36,22 @@
   $(function  () {
     $("#show_form").click(function  () {
       $(".form_container").toggle();
+    });
+    
+    $("table tbody tr").click(function(){
+      $.ajax({
+        url: 'snacks/' + $(this).attr("id"),
+        type: 'PUT',
+        dataType: 'html',
+        data:null,
+        complete: function(xhr, textStatus) {
+          alert("ajax complete");
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          alert("Your ajax request failed");
+        }
+      });
+      
     });
     
   });

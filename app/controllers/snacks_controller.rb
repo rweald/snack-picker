@@ -1,4 +1,5 @@
 class SnacksController < ApplicationController
+  require "ruby-debug"
   respond_to :html
   def new
   end
@@ -20,9 +21,12 @@ class SnacksController < ApplicationController
   end
   
   def update
-    if Snack.update_vote_count params[:id]
+    debugger
+    if Snack.update_vote_count :id => params[:id]
+      logger.info { "You managed to count vote" }
       flash[:notice] = "Your Vote has been counted"
     else
+      logger.info { "Your vote failed to count" }
       flash[:notice] = "There was a problem counting your vote please try again"
     end
     redirect_to :action => "index"
