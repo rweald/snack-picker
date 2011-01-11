@@ -1,5 +1,5 @@
 <div class="form_container">
-  <% form_for :snack, @snack, :url => {:controller => "snacks", :action => "create"} do |f| -%>
+  <%= form_for @snack, :as => :snack, :url => {:controller => "snacks", :action => "create"} do |f| -%>
     <div  class="field">
       <%= f.label :name, "Name" %>
       <%= f.text_field :name %> 
