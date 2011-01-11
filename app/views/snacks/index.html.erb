@@ -44,11 +44,11 @@
         type: 'PUT',
         dataType: 'html',
         data:null,
-        complete: function(xhr, textStatus) {
-          alert("ajax complete");
+        success: function(xhr, textStatus){
+          location.reload(true);
         },
         error: function(xhr, textStatus, errorThrown) {
-          alert("Your ajax request failed");
+          $("h2").before( "<div class='alert'> Your Vote could not be counted please try again soon </div>");
         }
       });
       
@@ -56,4 +56,3 @@
     
   });
 </script>
-
