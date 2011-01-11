@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+<div class="alert">
+  <%= flash[:notice] %>
+</div>
+<% end %>
 <h2> Click on a row to place a vote for that particular snack </h2>
 <table  id="snack_list" cellspacing="0" cellpadding="0" >
   <thead>
