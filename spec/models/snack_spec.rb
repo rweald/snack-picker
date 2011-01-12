@@ -13,7 +13,7 @@ describe Snack do
     it { should validate_presence_of :quantity}    
   end
   
-  describe "#update_vote_count" do
+  describe ".update_vote_count" do
     context "valid id parameter" do
       it "should return true" do
         Snack.update_vote_count(:id => @my_snack.id).should be_true
