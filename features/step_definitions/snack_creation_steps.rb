@@ -12,6 +12,7 @@ end
 
 When /^I create a new snack using the snack form$/ do
   visit(snacks_path)
+  page.find(:xpath, "//a").click
   # within(".form_container") do 
     fill_in "snack_name", :with => "cheeseitz"
     fill_in "snack_category", :with => "junk"
